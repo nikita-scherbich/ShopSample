@@ -25,7 +25,8 @@
   },
   "namedInputs": {
     "sharedGlobals": [
-      "{workspaceRoot}/.github/workflows/initial.yml"
+      "{workspaceRoot}/.github/workflows/initial.yml",
+      "{workspaceRoot}/.github/workflows/ci.yml"
     ],
     "default": [
       "{projectRoot}/**/*",
