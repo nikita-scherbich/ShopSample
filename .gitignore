@@ -26,3 +26,7 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+.nx/installation
+.nx/cache
+.nx/workspace-data
