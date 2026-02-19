@@ -1,0 +1,62 @@
+@import 'src/styles.scss';
+
+:host {
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "sidebar main";
+  grid-template-columns: $sidebar-width-desktop 1fr;
+  grid-template-rows: $header-height-desktop 1fr;
+  height: 100vh;
+  overflow: hidden;
+}
+
+header {
+  grid-area: header;
+}
+
+aside {
+  grid-area: sidebar;
+  width: $sidebar-width-desktop;
+  overflow-y: auto;
+  border-right: 1px solid #eee; /* Placeholder for separator */
+}
+
+main {
+  grid-area: main;
+  overflow-y: auto;
+  padding: $content-padding;
+  background-color: $shell-main-bg;
+}
+
+@media (max-width: $breakpoint-mobile) {
+  :host {
+    grid-template-areas:
+      "header"
+      "main";
+    grid-template-columns: 1fr;
+    grid-template-rows: $header-height-desktop 1fr;
+  }
+
+  aside {
+    display: none; /* Sidebar hidden by default on mobile */
+  }
+
+  /* When sidebar is open on mobile */
+  :host.sidebar-open {
+    grid-template-areas:
+      "header"
+      "sidebar"
+      "main";
+    grid-template-rows: $header-height-desktop auto 1fr; /* Adjust rows for sidebar */
+    aside {
+      display: block; /* Show sidebar */
+      position: absolute; /* Overlay content */
+      height: calc(100vh - #{$header-height-desktop});
+      top: $header-height-desktop;
+      left: 0;
+      z-index: 10;
+      background-color: white; /* Ensure it stands out */
+    }
+  }
+}

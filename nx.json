@@ -37,5 +37,10 @@
       "!{projectRoot}/tsconfig.spec.json",
       "!{projectRoot}/**/*.spec.[jt]s"
     ]
+  },
+  "generators": {
+    "@nx/angular:component": {
+      "style": "scss"
+    }
   }
 }
