@@ -1,0 +1,30 @@
+@import 'src/styles.scss';
+
+:host {
+  display: flex;
+  align-items: center;
+  padding: 0 $content-padding;
+  height: $header-height-desktop;
+  background-color: $primary-color;
+  color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.app-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.hamburger {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 0 10px;
+  display: none; /* Hidden by default, shown on mobile */
+
+  @media (max-width: $breakpoint-mobile) {
+    display: block;
+  }
+}

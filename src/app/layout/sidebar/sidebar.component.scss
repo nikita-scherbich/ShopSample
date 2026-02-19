@@ -1,0 +1,43 @@
+@import 'src/styles.scss';
+
+:host {
+  background-color: white;
+  padding-top: $content-padding;
+  box-shadow: 2px 0 4px rgba(0, 0, 0, 0.05);
+}
+
+.nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-item {
+  a {
+    display: block;
+    padding: 10px $content-padding;
+    color: $text-color;
+    text-decoration: none;
+
+    &:hover {
+      background-color: $background-color;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-mobile) {
+  :host {
+    /* Mobile specific styles for the sidebar */
+    width: 100vw; /* Full width on mobile when open */
+    height: 100%;
+    position: fixed; /* Overlay content */
+    top: $header-height-desktop;
+    left: 0;
+    transform: translateX(-100%); /* Hidden by default */
+    transition: transform 0.3s ease-in-out;
+  }
+
+  :host.open {
+    transform: translateX(0); /* Slide in when open */
+  }
+}
